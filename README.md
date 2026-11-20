@@ -1,1 +1,1 @@
-gh repo clone jaggalive/jaggajd
+https://jaggalive.github.io/jaggajd/
