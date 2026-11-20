@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="JAGGA LIVE - Official Kick Gaming Channel">
+
+<title>JAGGA LIVE | KICK</title>
+
+<style>
+:root {
+  --green: #53FC18;
+  --black: #050605;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--black);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  padding: max(24px, env(safe-area-inset-top))
+           18px
+           max(24px, env(safe-area-inset-bottom));
+}
+
+/* BACKGROUND GRID */
+
+.grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(83,252,24,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(83,252,24,.10) 1px, transparent 1px);
+  background-size: 45px 45px;
+  animation: gridMove 15s linear infinite;
+}
+
+.grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 5%,
+    #000 90%
+  );
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 45px 45px; }
+}
+
+/* MAIN CONTENT */
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 25px 10px;
+}
+
+/* LOGO */
+
+.logo-box {
+  width: clamp(135px, 42vw, 210px);
+  height: clamp(135px, 42vw, 210px);
+  margin: 0 auto 28px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(83,252,24,.55));
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.045); }
+}
+
+/* TEXT */
+
+h1 {
+  font-size: clamp(31px, 8vw, 56px);
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.green {
+  color: var(--green);
+}
+
+.sub {
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-bottom: 36px;
+}
+
+/* BUTTON */
+
+.tap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 290px;
+  min-height: 56px;
+  margin: auto;
+  padding: 15px 20px;
+  border: 1px solid var(--green);
+  border-radius: 12px;
+  background: rgba(83,252,24,.07);
+  color: var(--green);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: .25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tap:active {
+  background: var(--green);
+  color: #000;
+  transform: scale(.97);
+}
+
+@media (hover: hover) {
+  .tap:hover {
+    background: var(--green);
+    color: #000;
+    box-shadow: 0 0 28px rgba(83,252,24,.45);
+  }
+}
+
+/* FOOTER */
+
+.note {
+  margin-top: 26px;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer {
+  margin-top: 48px;
+  color: #555;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.footer span {
+  color: var(--green);
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 360px) {
+  .sub {
+    letter-spacing: 2px;
+  }
+}
+
+/* LANDSCAPE MOBILE */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .logo-box {
+    width: 95px;
+    height: 95px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .sub {
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    margin-top: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<main class="container">
+
+  <div class="logo-box">
+    <img
+      class="logo"
+      src="assets/jagga-portrait.png"
+      alt="JAGGA LIVE Logo"
+    >
+  </div>
+
+  <h1>
+    OPENING <span class="green">KICK</span>
+  </h1>
+
+  <div class="sub">
+    LAUNCHING JAGGA LIVE...
+  </div>
+
+  <a id="openButton" class="tap" href="https://kick.com/jaggajd">
+    OPEN KICK NOW ↗
+  </a>
+
+  <div class="note">
+    WELCOME TO JAGGA LIVE
+    <br>
+    If Kick doesn't open automatically,
+    tap the button above.
+  </div>
+
+  <div class="footer">
+    POWERED BY <span>JAGGAJD</span>
+  </div>
+
+</main>
+
+<script>
+
+/* =====================================
+   JAGGA LIVE - DAILY STREAM SETTINGS
+===================================== */
+
+// CHANGE THIS LINK BEFORE EVERY STREAM
+
+const DAILY_STREAM_LINK = "";
+
+// PERMANENT KICK CHANNEL
+
+const CHANNEL_LINK = "https://kick.com/jaggajd";
+
+// AUTOMATIC DESTINATION
+
+const KICK_LINK =
+  DAILY_STREAM_LINK.trim() || CHANNEL_LINK;
+
+// BUTTON SETUP
+
+const openButton = document.getElementById("openButton");
+
+openButton.href = KICK_LINK;
+
+// AUTO REDIRECT AFTER 3 SECONDS
+
+let redirectTimer;
+
+window.addEventListener("load", () => {
+
+  redirectTimer = setTimeout(() => {
+    window.location.href = KICK_LINK;
+  }, 3000);
+
+});
+
+// MANUAL BUTTON
+
+openButton.addEventListener("click", () => {
+  clearTimeout(redirectTimer);
+});
+
+</script>
+
+</body>
+</html>
